@@ -4,11 +4,29 @@ export type Stat = {
   note?: string
 }
 
+export type VisualKind = 'split' | 'map' | 'golf' | 'social' | 'tampa' | 'action' | 'partners'
+
+export type SectionVisual = {
+  kind: VisualKind
+  title: string
+  caption: string
+  fullImageHref?: string
+}
+
 export type ContentSection = {
   id: string
+  eyebrow: string
   title: string
+  lead: string
   paragraphs: string[]
+  bullets?: string[]
   stats?: Stat[]
+  visual: SectionVisual
+}
+
+export type ActionGroup = {
+  title: string
+  items: string[]
 }
 
 export type Source = {
@@ -17,142 +35,216 @@ export type Source = {
   note?: string
 }
 
-export const siteTitle = 'Every Drop Counts'
+export const siteTitle = 'Water Justice Visibility Campaign'
 
 export const hero = {
-  title: 'Water we see—and water we lose',
-  tagline:
-    'A PSA on discretionary water use: when fountains, resorts, and big attractions stay full, lakes and rivers can run low. Learn what is at stake and what you can do.',
-  ctaHref: '#actions',
-  ctaLabel: 'What you can do',
+  eyebrow: 'University of Tampa student PSA',
+  title: "While You're Scrolling, We're Running Out.",
+  tagline: 'Fresh water is disappearing - but your feed would never tell you that.',
+  ctaHref: '#hidden-cost',
+  ctaLabel: "See What They're Not Showing You",
+  secondaryHref: '#actions',
+  secondaryLabel: 'Take action locally',
+}
+
+export const campaignDetails = {
+  hashtag: 'Campaign hashtag coming soon',
+  instagramHref: 'https://www.instagram.com/rethink.reduce/',
+  instagramLabel: '@rethink.reduce',
 }
 
 export const navItems: { id: string; label: string }[] = [
-  { id: 'tension', label: 'The tension' },
-  { id: 'luxury', label: 'Visible luxury' },
-  { id: 'recreation', label: 'Big recreation' },
-  { id: 'surface-water', label: 'Lakes & rivers' },
+  { id: 'problem', label: 'The crisis' },
+  { id: 'hidden-cost', label: 'Hidden cost' },
+  { id: 'tampa', label: 'Tampa' },
   { id: 'actions', label: 'Take action' },
+  { id: 'partners', label: 'Partners' },
   { id: 'sources', label: 'Sources' },
 ]
 
 export const sections: ContentSection[] = [
   {
-    id: 'tension',
-    title: 'The tension',
+    id: 'problem',
+    eyebrow: 'The problem',
+    title: "The Water Crisis Is Already Here - And It's Closer Than You Think",
+    lead:
+      "Most people think of water scarcity as someone else's problem. A drought in Arizona. A Day Zero warning in Cape Town. But the reality is much closer to home.",
     paragraphs: [
-      'Fresh water is limited. Communities, farms, and ecosystems all draw from the same rivers, reservoirs, and aquifers. Hotter, drier weather and longer dry spells mean less snowpack and runoff to refill the system.',
-      'Some of the most debated uses are also the most visible: sparkling fountains, resort landscapes, and large pools. They are not the whole story of water stress—but in stressed basins, they can symbolize how casually we treat a shared resource.',
+      'Fresh water makes up only 2.5% of all water on Earth. We are using it faster than it can be replenished.',
     ],
     stats: [
       {
-        label: 'Regional water stress index',
-        value: '[TBD]',
-        note: 'Replace with a metric or map you are assigned to cite (e.g., local watershed report).',
+        label: 'Americans affected',
+        value: '30M',
+        note: 'Nearly 30 million Americans live in areas with limited water supplies.',
       },
       {
-        label: 'Population served by your example basin',
-        value: '[TBD]',
-        note: 'Optional class project placeholder.',
+        label: 'Aquifers drying',
+        value: '53%',
+        note: "Roughly 53% of the nation's aquifers are drying up as water systems warm.",
+      },
+      {
+        label: 'Freshwater basins at risk',
+        value: 'Nearly half',
+        note: 'Many U.S. basins may not meet monthly water demand by 2071.',
+      },
+      {
+        label: 'Florida drought deficit',
+        value: '11 in.',
+        note: 'Florida is experiencing a Level 2 drought and an 11-inch rainfall deficit.',
       },
     ],
+    visual: {
+      kind: 'map',
+      title: 'Scarcity is local',
+      caption: 'A map-inspired drought panel grounds the numbers in places people recognize.',
+      fullImageHref: '/drought-map.png',
+    },
   },
   {
-    id: 'luxury',
-    title: 'Visible luxury',
+    id: 'hidden-cost',
+    eyebrow: 'The hidden cost of luxury water use',
+    title: "What Your Feed Isn't Showing You",
+    lead:
+      'Social media is full of water. Pool content. Golf course aesthetics. WaterTok. But none of it shows you where that water comes from - or what it costs.',
     paragraphs: [
-      'Decorative fountains and water features often recirculate the same water, but water still leaves the system through evaporation, wind drift, and splash—especially in arid, windy places. Lighting and pumping add energy use on top of the water footprint.',
-      'Resort pools, golf turf, and lush non-native landscaping can demand large, steady irrigation. During drought, some cities restrict ornamental water first because it is nonessential—even when other sectors use more water overall.',
+      'Water is not just being used. It is being used for aesthetics, entertainment, and trends while millions of Americans face shrinking supplies.',
+    ],
+    bullets: [
+      'A typical American golf course uses around 312,000 gallons of water per day to maintain its greens.',
+      'In arid regions like Palm Springs, that number exceeds 1 million gallons per day.',
+      'Golf course irrigation across the U.S. totals approximately 2.08 billion gallons per day.',
+      'Platforms reward aspirational, consequence-free content while the reality of scarcity rarely goes viral.',
+    ],
+    visual: {
+      kind: 'golf',
+      title: 'Green on one side, dry on the other',
+      caption: 'A luxury landscape treatment contrasts bright turf with cracked, thirsty ground.',
+    },
+  },
+  {
+    id: 'tampa',
+    eyebrow: 'Why it matters here',
+    title: 'This Is a Tampa Problem Too',
+    lead:
+      'Florida may feel like a wet state, but it is not immune. The same water being used to keep golf courses green and water parks running is drawn from the same stressed systems that supply our drinking water.',
+    paragraphs: [
+      'Florida is one of the top four states for total water withdrawals in the U.S., alongside California, Texas, and Idaho.',
+      'Tampa sits in a region where demand for water is growing while local supplies are under increasing pressure. If we cannot address the problem locally, we cannot begin to address it globally.',
     ],
     stats: [
       {
-        label: 'Example fountain or resort policy',
-        value: '[TBD: location]',
-        note: 'Add a city ordinance, drought stage, or facility you researched.',
+        label: 'Local frame',
+        value: 'Tampa Bay',
+        note: 'A familiar place makes the crisis harder to scroll past.',
       },
+      {
+        label: 'State context',
+        value: 'Top 4',
+        note: 'Florida ranks among the top states for total water withdrawals.',
+      },
+    ],
+    visual: {
+      kind: 'tampa',
+      title: 'From campus lawns to community supply',
+      caption: 'A local visual panel connects the campaign to Tampa and the University of Tampa.',
+    },
+  },
+]
+
+export const actionIntro = {
+  id: 'actions',
+  eyebrow: 'What you can do',
+  title: 'You Have More Power Than You Think',
+  body:
+    'This is not about guilt. It is about awareness and action. Here is how you can start.',
+}
+
+export const actionGroups: ActionGroup[] = [
+  {
+    title: 'On social media',
+    items: [
+      'When you see luxury water content, ask: where does this water come from?',
+      `Share campaign posts and use: ${campaignDetails.hashtag}.`,
+      'Reframe the narrative by posting about conservation in a way that actually reaches people.',
     ],
   },
   {
-    id: 'recreation',
-    title: 'Big recreation',
-    paragraphs: [
-      'Water parks move a lot of water, but most of it stays in closed loops: filtration, treatment, and reuse. What they “consume” is mainly the makeup water needed to replace evaporation, splash-out, backwashing, and cleaning—still meaningful in dry regions, but different from “pouring away” the same volume every day.',
-      'The public debate is often about fairness and priorities: should a stressed basin host attractions that look like endless summer while nearby ecosystems or farms face cutbacks? Good messaging distinguishes total pool volume from daily losses and cites local numbers.',
-    ],
-    stats: [
-      {
-        label: 'Estimated daily makeup water (example venue)',
-        value: '[TBD]',
-        note: 'Use operator reports, news investigations, or technical PDFs for your region.',
-      },
-      {
-        label: 'Compare to: golf course or alfalfa per day',
-        value: '[TBD]',
-        note: 'Context helps; verify before publishing.',
-      },
+    title: 'On campus',
+    items: [
+      'Push for transparent water usage reporting from University of Tampa administration.',
+      'Engage student athletic organizations about the water footprint of maintaining fields and courses.',
+      'Advocate for campus-wide water conservation initiatives.',
     ],
   },
   {
-    id: 'surface-water',
-    title: 'Lakes, rivers, and drying',
-    paragraphs: [
-      'Reservoirs and natural lakes fall when inflows drop and withdrawals continue. Warm air speeds evaporation from open water. What looks like a “bathtub ring” at the marina is a signal that the whole basin is out of balance.',
-      'Rivers tell the same story in motion: lower snowpack, earlier melt, upstream diversions, and dams can all reduce flow. Fish habitat, water quality, and downstream communities depend on those flows. When discretionary use rises in the same watershed, tensions rise too—especially if the waste is obvious.',
-      'Tie your PSA to real geography: pick one lake or river reach, name the stressor (drought, allocation, climate trend), and cite a trustworthy source. Below are placeholders until you plug in your case study.',
-    ],
-    stats: [
-      {
-        label: 'Lake or reservoir level change',
-        value: '[TBD: lake, % or ft]',
-        note: 'e.g., agency gage or satellite lake level product.',
-      },
-      {
-        label: 'River flow vs. historical average',
-        value: '[TBD: river reach]',
-        note: 'USGS or equivalent streamgage snapshot for a date you cite.',
-      },
-    ],
-  },
-  {
-    id: 'actions',
-    title: 'What you can do',
-    paragraphs: [
-      'Fix leaks at home; they are silent thieves. Shorten showers and turn off taps while brushing. Choose native or drought-tolerant plants instead of thirsty turf.',
-      'Support utilities and policies that reward efficiency (metering, pricing, reuse). Ask schools and towns to publish water data for big ornamental users so decisions are transparent.',
-      'When you speak up, be accurate: distinguish water use from consumption, cite local numbers, and avoid blaming one group for a whole watershed’s math unless your sources support it.',
+    title: 'In daily life',
+    items: [
+      'Reduce lawn and landscaping water waste.',
+      'Support businesses and organizations that practice water recycling.',
+      'Follow local drought conditions and water policy updates.',
     ],
   },
 ]
 
+export const partnerSection = {
+  id: 'partners',
+  eyebrow: 'Our partners',
+  title: "Who's Already Doing It Right",
+  paragraphs: [
+    'Change is possible. Walt Disney World Resort uses reclaimed water for 80% of its irrigation needs and 30% of its overall water needs. If a resort the size of a small city can do it, so can we.',
+    'The campaign is also working with Tampa Terrance, a local Tampa Bay influencer, to bring this message to the community in a way that is honest, relatable, and worth watching.',
+  ],
+}
+
+export const aboutSection = {
+  id: 'about',
+  eyebrow: 'About the campaign',
+  title: 'About This Campaign',
+  paragraphs: [
+    'This campaign was created by students at the University of Tampa as part of a Water Justice media project.',
+    'Our goal is simple: make visible what luxury water culture keeps hidden, and inspire real action starting right here in our own community.',
+    'We are not asking you to stop having fun. We are asking you to think about what fun actually costs - and whether we can afford to keep paying that price.',
+  ],
+}
+
 export const sourcesIntro =
-  'Start here for reputable background. Replace or extend this list with the exact studies your instructor requires.'
+  'The campaign guide cites these sources for water availability, aquifer stress, golf irrigation, Disney sustainability, and water demand context.'
 
 export const sources: Source[] = [
   {
-    title: 'EPA WaterSense — statistics and facts',
-    url: 'https://www.epa.gov/watersense/statistics-and-facts',
-    note: 'Indoor and outdoor efficiency context.',
+    title: 'USGS National Water Availability Assessment',
+    url: 'https://www.usgs.gov/',
+    note: 'January 2025 water availability context and limited-supply figures.',
   },
   {
-    title: 'University of Arizona WRRC — Fountains: water wasters or works of art?',
-    url: 'https://wrrc.arizona.edu/publication/fountains-water-wasters-or-works-art',
-    note: 'Public perception vs. engineering of decorative water.',
+    title: "Grist - Roughly 53 percent of the nation's aquifers are drying up",
+    url: 'https://grist.org/',
+    note: 'Aquifer depletion reporting cited in the campaign guide.',
   },
   {
-    title: 'WhiteWater West — Water and energy sustainability (PDF)',
-    url: 'https://www.whitewaterwest.com/wp-content/uploads/2022/06/108-Water-and-Energy-Sustainability.pdf',
-    note: 'Industry framing: reuse vs. makeup water in water parks.',
+    title: 'U.S. Forest Service / Colorado State University freshwater basin study',
+    url: 'https://www.fs.usda.gov/',
+    note: 'Future monthly demand risk across U.S. freshwater basins.',
   },
   {
-    title: 'Water conservation at waterparks (industry PDF)',
-    url: 'http://ishc.com/wp-content/uploads/Water_Conservation_Waterparks.pdf',
-    note: 'Operations and conservation talking points; verify link before citing in a paper.',
+    title: 'NPR / Audubon International golf course water estimates',
+    url: 'https://www.npr.org/',
+    note: 'Daily golf course water use estimates and regional comparisons.',
   },
-]
-
-export const tbdChecklist: string[] = [
-  '[TBD] Name one lake or river reach you will feature with a map link.',
-  '[TBD] Add two numbers you can defend (e.g., annual makeup water, irrigated acres, or storage change).',
-  '[TBD] Credit your instructor, school, or club on the page footer if required.',
-  '[TBD] Run spell-check and fact-check before publishing.',
+  {
+    title: 'USGA - How Much Water Does Golf Use',
+    url: 'https://www.usga.org/',
+    note: 'National golf irrigation usage context.',
+  },
+  {
+    title: 'Disney Environmental Impact Report',
+    url: 'https://disneyexperiences.com/',
+    note: 'Reclaimed water use and sustainability reporting.',
+  },
+  {
+    title: 'National Environmental Education Foundation water demand data',
+    url: 'https://www.neefusa.org/',
+    note: 'Background context on water demand and supply.',
+  },
 ]
