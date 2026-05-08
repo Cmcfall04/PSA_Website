@@ -48,7 +48,7 @@ export const hero = {
 }
 
 export const campaignDetails = {
-  hashtag: 'Campaign hashtag coming soon',
+  hashtag: '#RethinkReduce',
   instagramHref: 'https://www.instagram.com/rethink.reduce/',
   instagramLabel: '@rethink.reduce',
 }
