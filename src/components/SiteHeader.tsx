@@ -50,6 +50,10 @@ export function SiteHeader() {
             </div>
           </div>
         </div>
+        <a className="scroll-indicator" href="#featured-video" aria-label="Scroll down to featured video">
+          <span>Scroll to video</span>
+          <span className="scroll-indicator__arrow" aria-hidden="true" />
+        </a>
       </div>
     </header>
   )

@@ -22,6 +22,26 @@ function App() {
       </a>
       <SiteHeader />
       <main className="site-main" id="main">
+        <section className="featured-video" id="featured-video" aria-labelledby="featured-video-heading">
+          <div className="section-heading section-heading--left">
+            <p className="eyebrow">Watch first</p>
+            <h2 id="featured-video-heading">Start with this video</h2>
+            <p className="prose">
+              This short YouTube video introduces the issue right away, so visitors see the message before they
+              scroll through the rest of the campaign page.
+            </p>
+          </div>
+          <div className="featured-video__frame-wrap">
+            <iframe
+              className="featured-video__frame"
+              src="https://www.youtube.com/embed/SXcXGyXxozE"
+              title="Featured campaign video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </section>
+
         {sections.map((section, index) => (
           <div key={section.id}>
             <Section section={section} reversed={index % 2 === 1} />

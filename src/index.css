@@ -93,7 +93,7 @@ a:hover {
 .site-header {
   position: relative;
   overflow: hidden;
-  padding: 1rem var(--page-pad) clamp(3rem, 8vw, 6rem);
+  padding: 0.9rem var(--page-pad) clamp(1.6rem, 4vw, 3rem);
   color: #fff;
   background:
     linear-gradient(130deg, rgba(3, 13, 20, 0.98), rgba(7, 37, 52, 0.9)),
@@ -122,7 +122,7 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: clamp(3rem, 8vw, 6rem);
+  margin-bottom: clamp(1.2rem, 3vw, 2.2rem);
 }
 
 .site-nav__brand {
@@ -175,30 +175,72 @@ a:hover {
 .hero-grid {
   display: grid;
   align-items: center;
-  gap: clamp(2rem, 6vw, 5rem);
+  gap: clamp(1.25rem, 3.5vw, 2.4rem);
   grid-template-columns: minmax(0, 1.02fr) minmax(19rem, 0.98fr);
+}
+
+.scroll-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.scroll-indicator:hover {
+  color: #fff;
+}
+
+.scroll-indicator__arrow {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-indicator__arrow {
+    animation: scroll-indicator-bounce 1.2s ease-in-out infinite;
+  }
+}
+
+@keyframes scroll-indicator-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  50% {
+    transform: translateY(0.35rem) rotate(45deg);
+  }
 }
 
 .hero-copy h1 {
   max-width: 11ch;
   margin: 0;
-  font-size: clamp(3rem, 8vw, 6.6rem);
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
   line-height: 0.92;
   letter-spacing: -0.08em;
 }
 
 .hero-copy__tagline {
   max-width: 36rem;
-  margin: 1.4rem 0 0;
+  margin: 0.95rem 0 0;
   color: rgba(255, 255, 255, 0.78);
-  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-size: clamp(1rem, 1.55vw, 1.2rem);
 }
 
 .hero-copy__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin-top: 2rem;
+  margin-top: 1.15rem;
 }
 
 .eyebrow {
@@ -251,7 +293,7 @@ a:hover {
 
 .hero-visual {
   position: relative;
-  min-height: clamp(25rem, 48vw, 36rem);
+  min-height: clamp(18.5rem, 33vw, 25rem);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-lg);
@@ -355,6 +397,44 @@ a:hover {
   width: min(100% - (var(--page-pad) * 2), var(--max-page));
   margin: 0 auto;
   padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+.featured-video {
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(145deg, rgba(14, 38, 51, 0.9), rgba(8, 27, 39, 0.9)),
+    radial-gradient(circle at top right, rgba(46, 199, 232, 0.16), transparent 18rem);
+  box-shadow: var(--shadow-card);
+}
+
+.featured-video .section-heading {
+  margin: 0 0 1.25rem;
+}
+
+.featured-video .prose {
+  margin: 0.8rem 0 0;
+}
+
+.featured-video__frame-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #04121b;
+  box-shadow: var(--shadow-soft);
+  aspect-ratio: 16 / 9;
+}
+
+.featured-video__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .content-section,
@@ -983,7 +1063,7 @@ a:hover {
   }
 
   .site-nav {
-    margin-bottom: 3rem;
+    margin-bottom: 2.1rem;
   }
 
   .hero-grid,
@@ -1018,12 +1098,12 @@ a:hover {
 
   .site-header {
     padding-top: 0.85rem;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
   }
 
   .site-nav {
     gap: 0.85rem;
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 
   .site-nav__brand {
@@ -1046,23 +1126,28 @@ a:hover {
   }
 
   .hero-grid {
-    gap: 1.65rem;
+    gap: 1.15rem;
   }
 
   .hero-copy h1 {
     max-width: 10ch;
-    font-size: clamp(2.7rem, 15vw, 4rem);
+    font-size: clamp(2.25rem, 12vw, 3.2rem);
     letter-spacing: -0.065em;
   }
 
   .hero-copy__tagline {
-    margin-top: 1rem;
-    font-size: 1.05rem;
+    margin-top: 0.7rem;
+    font-size: 0.98rem;
   }
 
   .hero-copy__actions {
     display: grid;
     gap: 0.65rem;
+  }
+
+  .scroll-indicator {
+    margin-top: 0.8rem;
+    font-size: 0.82rem;
   }
 
   .button {
@@ -1073,7 +1158,7 @@ a:hover {
   .hero-visual,
   .visual-card,
   .action-photo {
-    min-height: 21rem;
+    min-height: 17.5rem;
   }
 
   .hero-visual__panel {
@@ -1153,6 +1238,11 @@ a:hover {
   .about-section,
   .sources-section {
     padding: 1.4rem;
+  }
+
+  .featured-video {
+    margin-bottom: 2rem;
+    padding: 1.1rem;
   }
 
   .stat-card,
