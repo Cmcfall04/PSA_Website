@@ -23,6 +23,7 @@ export function SiteHeader() {
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="eyebrow">{hero.eyebrow}</p>
+            <p className="hero-copy__slogan">{hero.slogan}</p>
             <h1>{hero.title}</h1>
             <p className="hero-copy__tagline">{hero.tagline}</p>
             <div className="hero-copy__actions" aria-label="Primary calls to action">

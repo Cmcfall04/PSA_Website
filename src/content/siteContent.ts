@@ -39,6 +39,7 @@ export const siteTitle = 'Water Justice Visibility Campaign'
 
 export const hero = {
   eyebrow: 'University of Tampa student PSA',
+  slogan: 'Water is our lifeblood, Act like it.',
   title: "While You're Scrolling, We're Running Out.",
   tagline: 'Fresh water is disappearing - but your feed would never tell you that.',
   ctaHref: '#hidden-cost',
